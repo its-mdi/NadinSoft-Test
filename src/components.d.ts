@@ -11,5 +11,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TaskDialog: typeof import('./components/taskDialog.vue')['default']
+    WeatherSearchResult: typeof import('./components/weatherSearchResult.vue')['default']
   }
 }

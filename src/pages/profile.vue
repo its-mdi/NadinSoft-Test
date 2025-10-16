@@ -24,7 +24,7 @@
       <v-btn :text="t('message.save')" type="submit" variant="tonal" color="blue" class="w-100" prepend-icon="mdi-check"/>
     </v-card>
     </v-form>
-    <v-snackbar-queue v-model="toastMessage" :color="toastColor"></v-snackbar-queue>
+    <v-snackbar-queue v-model="toastMessage" :color="toastColor"/>
   </div>
 </template>
 
