@@ -7,7 +7,7 @@
 // Styles
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
-
+import {fa} from 'vuetify/locale'
 // Composables
 import {createVuetify} from 'vuetify'
 const userLang = localStorage.getItem('lang')
@@ -15,6 +15,7 @@ const userLang = localStorage.getItem('lang')
 export default createVuetify({
   locale: {
     locale: localStorage.getItem('lang') || 'en', // Set active locale
+    messages: {fa},
     rtl: {
       fa: true,
       en: false,
