@@ -45,6 +45,7 @@ const i18n = createI18n({
         fetching:'Retrieving data',
         searchResult:'Search result',
         failedToFetch:'Retrieving data failed,please try again!',
+        enterUserName:"In order to access the website's fixtures enter your userName!",
       },
       weather: {
         currentWeatherOf:'The current weather of {city}',
@@ -114,6 +115,7 @@ const i18n = createI18n({
         fetching:'در حال دریافت اطلاعات',
         searchResult:'نتیجه جستجو',
         failedToFetch:'دریافت اطلاعات با مشکل مواجه شد، لطفا مجددا تلاش کنید.',
+        enterUserName:'به منظور دسترسی به امکانات سایت لطفا ابتدا اقدام به وارد کردن نام کاربری خود بکنید!',
       },
       weather: {
         currentWeatherOf:'وضعیت فعلی هوای شهر {city}',
