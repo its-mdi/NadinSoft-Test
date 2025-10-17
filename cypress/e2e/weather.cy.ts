@@ -23,20 +23,20 @@ describe('Weather Page', () => {
 
     cy.contains('.v-list-item', 'Tehran').click({ force: true })
 
-// ✅ Check spinner exists (not necessarily visible)
+// Check spinner exists (not necessarily visible)
     cy.get('.v-progress-circular', { timeout: 10000 }).should('exist')
 
     cy.wait('@fetchWeather')
 
-// ✅ Assert weather result card appears
+// Assert weather result card appears
     cy.contains('Search Result', { matchCase: false }).should('be.visible')
 
-// ✅ Assert city name inside the RESULT CARD, NOT the autocomplete
+// Assert city name inside the RESULT CARD, NOT the autocomplete
     cy.get('.v-card').within(() => {
       cy.contains('Tehran').should('be.visible')
     })
 
-// ✅ Optionally assert temperature if you know the mock value
+// Optionally assert temperature if you know the mock value
     cy.contains('22').should('be.visible')
   })
 })
