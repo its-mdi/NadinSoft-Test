@@ -34,10 +34,10 @@
 import {useI18n} from 'vue-i18n'
 import {useTheme} from 'vuetify'
 
-const {t, locale} = useI18n()
-const userName = ref(localStorage.getItem('userName'))
+const { t, locale } = useI18n<{ message: Record<string, string> }>()
+const userName = ref(localStorage.getItem('userName') || '')
 const theme = useTheme()
-const toastMessage = ref([])
+const toastMessage = ref<string[]>([])
 const toastColor = ref('success')
 
 //Language options
@@ -47,7 +47,7 @@ const languages = [
 ]
 
 //Selected lang holder
-const lang = ref(locale.value)
+const lang = ref<string>(locale.value)
 //Define a ref for the form
 const form = ref()
 //Form validation constant
