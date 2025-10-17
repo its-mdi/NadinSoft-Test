@@ -23,25 +23,25 @@
             </v-chip>
           </td>
           <td>
-            <v-btn class="mx-2" v-if="!task.done" icon color="green" @click="toggleDone(index)">
+            <v-btn class="mx-2" v-if="!task.done" icon color="green" @click="toggleDone(index)" data-testid="done-btn">
               <v-icon icon="mdi-check"/>
               <v-tooltip
                 activator="parent"
               >{{ t('message.done') }}</v-tooltip>
             </v-btn>
-            <v-btn class="mx-2" v-if="task.done" icon color="warning" @click="toggleDone(index)">
+            <v-btn class="mx-2" v-if="task.done" icon color="warning" @click="toggleDone(index)" data-testid="redo-btn">
               <v-icon icon="mdi-redo-variant"/>
               <v-tooltip
                 activator="parent"
               >{{ t('message.redo') }}</v-tooltip>
             </v-btn>
-            <v-btn class="me-2" v-if="!task.done" icon color="blue" @click="openDialog(task, index)">
+            <v-btn class="me-2" v-if="!task.done" icon color="blue" @click="openDialog(task, index)" data-testid="edit-btn">
               <v-icon icon="mdi-pencil"/>
               <v-tooltip
                 activator="parent"
               >{{ t('message.edit') }}</v-tooltip>
             </v-btn>
-              <v-btn icon color="red" @click="deleteTask(index)">
+              <v-btn icon color="red" @click="deleteTask(index)" data-testid="delete-btn">
                 <v-icon icon="mdi-delete"/>
                 <v-tooltip
                   activator="parent"
