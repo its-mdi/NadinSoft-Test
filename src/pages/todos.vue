@@ -41,12 +41,12 @@
                 activator="parent"
               >{{ t('message.edit') }}</v-tooltip>
             </v-btn>
-              <v-btn icon color="red" @click="deleteTask(index)" data-testid="delete-btn">
-                <v-icon icon="mdi-delete"/>
-                <v-tooltip
-                  activator="parent"
-                >{{ t('message.delete') }}</v-tooltip>
-              </v-btn>
+            <v-btn icon color="red" @click="deleteTask(index)" data-testid="delete-btn">
+              <v-icon icon="mdi-delete"/>
+              <v-tooltip
+                activator="parent"
+              >{{ t('message.delete') }}</v-tooltip>
+            </v-btn>
           </td>
         </tr>
         </tbody>
@@ -67,12 +67,17 @@
 <script setup lang="ts">
 import { ref, onMounted, watch } from 'vue'
 import {useI18n} from "vue-i18n";
+interface Task {
+  text: string
+  done: boolean
+}
+
 
 const {t} = useI18n()
-const tasks = ref([])
+const tasks = ref<Task[]>([])
 const dialog = ref(false)
 const taskText = ref('')
-const editIndex = ref(null)
+const editIndex = ref<number | null>(null)
 
 onMounted(() => {
   const stored = localStorage.getItem('toDoList')
@@ -83,7 +88,7 @@ watch(tasks, (val) => {
   localStorage.setItem('toDoList', JSON.stringify(val))
 }, { deep: true })
 
-const openDialog=(task = null, index = null)=> {
+const openDialog = (task: Task | null = null, index: number | null = null): void => {
   if (task) {
     taskText.value = task.text
     editIndex.value = index
@@ -93,8 +98,7 @@ const openDialog=(task = null, index = null)=> {
   }
   dialog.value = true
 }
-
-const handleSave=(value)=> {
+const handleSave=(value:string)=> {
   if (editIndex.value !== null) {
     tasks.value[editIndex.value].text = value
   } else {
@@ -102,11 +106,11 @@ const handleSave=(value)=> {
   }
 }
 
-function toggleDone(index) {
+function toggleDone(index:number) {
   tasks.value[index].done = !tasks.value[index].done
 }
 
-function deleteTask(index) {
+function deleteTask(index:number) {
   tasks.value.splice(index, 1)
 }
 </script>
