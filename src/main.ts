@@ -1,28 +1,13 @@
-/**
- * main.ts
- *
- * Bootstraps Vuetify and other plugins then mounts the App`
- */
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
+ModuleRegistry.registerModules([AllCommunityModule])
 
-// Plugins
 import { registerPlugins } from '@/plugins'
-
-// Components
-// @ts-ignore
 import App from './App.vue'
-
-// Composables
 import { createApp } from 'vue'
-
-// Styles
-import 'unfonts.css'
-
-//I18n
-import { createI18n } from "vue-i18n";
-import i18n from "@/plugins/i18n.ts";
+import '@/styles/main.scss'
+import '@/styles/ag-grid-custom.scss'
 
 const app = createApp(App)
-app.use(i18n)
 
 registerPlugins(app)
 

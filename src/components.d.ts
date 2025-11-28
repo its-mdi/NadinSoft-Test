@@ -8,9 +8,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ColumnChooserPanel: typeof import('./components/ColumnChooserPanel.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TaskDialog: typeof import('./components/taskDialog.vue')['default']
-    WeatherSearchResult: typeof import('./components/weatherSearchResult.vue')['default']
   }
 }
